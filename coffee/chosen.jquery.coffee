@@ -364,7 +364,7 @@ class Chosen extends AbstractChosen
       item = @results_data[ high[0].getAttribute("data-option-array-index") ]
       item.selected = true
 
-      @form_field.options[item.options_index].selected = true
+      @form_field.options[item.options_index - 1].selected = true
       @selected_option_count = null
 
       if @is_multiple
@@ -376,7 +376,7 @@ class Chosen extends AbstractChosen
         this.results_hide()
         this.show_search_field_default()
 
-      this.trigger_form_field_change selected: @form_field.options[item.options_index].value  if @is_multiple || @form_field.selectedIndex != @current_selectedIndex
+      this.trigger_form_field_change selected: @form_field.options[item.options_index - 1].value  if @is_multiple || @form_field.selectedIndex != @current_selectedIndex
       @current_selectedIndex = @form_field.selectedIndex
 
       evt.preventDefault()
